@@ -1,1 +1,20 @@
-tile.meatBlock.name = Meat Block
+itemGroup.porccorp=Porc Corp
+
+tile.meatblock.name=Meat Block
+tile.meatblock.bPorkBlock.name=Pork Crate
+tile.meatblock.bBeefBlock.name=Beef Crate
+tile.meatblock.bChickenBlock.name=Chicken Crate
+tile.meatblock.bFleshBlock.name=Rotten Flesh Crate
+tile.meatblock.bFishBlock.name=Fish Crate
+tile.meatblock.bMixedBlock.name=Mixed Meat Crate
+tile.meatblock.bMachineBlock.name=Meat Machine Base
+tile.bMeatFurnace.name=Meat Furnace
+
+item.meatnugget.porkNugget.name=Pork Piece
+item.meatnugget.beefNugget.name=Beef Piece
+item.meatnugget.chickenNugget.name=Chicken Piece
+item.meatnugget.fleshNugget.name=Flesh Piece
+item.meatnugget.fishNugget.name=Fish Piece
+
+item.mixedmeat.rawmm.name=Raw Mixed Meat
+item.mixedmeat.cookedmm.name=Cooked Mixed Meat

@@ -1,4 +1,4 @@
-package com.zlyfire.porcorp;
+package com.zlyfire.porccorp;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -16,8 +16,13 @@ public class PCItems {
 	public static Item rawFish = Items.fish;
 	public static Item cookedFish = Items.cooked_fished;
 	public static Item rawFlesh = Items.rotten_flesh;
+	public static Item egg = Items.egg;
+	
+	public static Item iMeatNugget;
+	public static Item mixedMeat;
 	
 	public static Block meatBlock;
+	public static Block bMeatFurnace;
 	
 	public static Material meat = Material.sponge;
 }
