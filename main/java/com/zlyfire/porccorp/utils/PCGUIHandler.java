@@ -12,26 +12,30 @@ import cpw.mods.fml.common.network.IGuiHandler;
 public class PCGUIHandler implements IGuiHandler{
 
 	@Override
-	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z){
+	public Object getServerGuiElement(int id, EntityPlayer eP, World world, int x, int y, int z){
 		TileEntity TE = world.getTileEntity(x, y, z);
 
 		switch(id){
-		case 0:
-			return new ContainerMeatFurnace(player.inventory, (TileEntityMeatFurnace) TE);
-		default:
+		case(0):{
+			return new ContainerMeatFurnace(eP.inventory, (TileEntityMeatFurnace) TE);
+		}
+		default:{
 			return null;
+		}
 		}
 	}
 
 	@Override
-	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z){
+	public Object getClientGuiElement(int id, EntityPlayer eP, World world, int x, int y, int z){
 		TileEntity TE = world.getTileEntity(x, y, z);
 
 		switch(id){
-		case 0:
-			return new GUIMeatFurnace(player.inventory, (TileEntityMeatFurnace) TE);
-		default:
+		case(0):{
+			return new GUIMeatFurnace(eP.inventory, (TileEntityMeatFurnace) TE);
+		}
+		default:{
 			return null;
+		}
 		}
 	}
 }

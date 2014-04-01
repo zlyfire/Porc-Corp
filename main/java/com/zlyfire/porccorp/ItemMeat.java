@@ -76,8 +76,8 @@ public class ItemMeat extends Item{
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister IIR){
-		iRawMM = IIR.registerIcon("porccorp:iRawMM");
-		iCookedMM= IIR.registerIcon("porccorp:iCookedMM");
+		iRawMM = IIR.registerIcon(PorcCorp.modid + ":iRawMM");
+		iCookedMM= IIR.registerIcon(PorcCorp.modid + ":iCookedMM");
 	}
 
 }

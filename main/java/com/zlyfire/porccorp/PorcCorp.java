@@ -115,5 +115,17 @@ public class PorcCorp{
     	OreDictionary.registerOre("zlyMeatNugget", PCCraft.iChickenNugget);
     	OreDictionary.registerOre("zlyMeatNugget", PCCraft.iFleshNugget);
     	OreDictionary.registerOre("zlyMeatNugget", PCCraft.iFishNugget);
+    	
+    	OreDictionary.registerOre("meat", PCItems.rawPork);
+    	OreDictionary.registerOre("meat", PCItems.rawBeef);
+    	OreDictionary.registerOre("meat", PCItems.rawChicken);
+    	OreDictionary.registerOre("meat", PCItems.rawFlesh);
+    	OreDictionary.registerOre("meat", PCItems.rawFish);
+    	OreDictionary.registerOre("meat", PCItems.cookedPork);
+    	OreDictionary.registerOre("meat", PCItems.cookedBeef);
+    	OreDictionary.registerOre("meat", PCItems.cookedChicken);
+    	OreDictionary.registerOre("meat", PCItems.cookedFish);
+    	OreDictionary.registerOre("meat", PCCraft.rawMMeat);
+    	OreDictionary.registerOre("meat", PCCraft.cookedMMeat);
     }
 }

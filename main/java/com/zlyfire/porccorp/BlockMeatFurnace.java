@@ -3,28 +3,27 @@ package com.zlyfire.porccorp;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Random;
-import java.util.ArrayList;
 
-import com.zlyfire.porccorp.utils.Utils;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import com.zlyfire.porccorp.utils.Utils;
+
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockMeatFurnace extends BlockContainer{
 
@@ -153,11 +152,11 @@ public class BlockMeatFurnace extends BlockContainer{
 	public boolean onBlockActivated(World world, int bx, int by, int bz, EntityPlayer eP, int par6, float px, float py, float pz) {
 		TileEntityMeatFurnace temf = (TileEntityMeatFurnace)world.getTileEntity(bx, by, bz);
 
-		if(eP.isSneaking() || temf == null){
+		/*if(eP.isSneaking() || temf == null){
 			return false;
-		}
+		}*/
 
-		/*Random random = new Random();
+		Random random = new Random();
 		int randomInt1 = random.nextInt();
 		int randomInt2 = random.nextInt();
 
@@ -170,22 +169,22 @@ public class BlockMeatFurnace extends BlockContainer{
 			ex.printStackTrace();
 		}
 
-		Packet250CustomPayload packet = new Packet250CustomPayload();
+		/*Packet250CustomPayload packet = new Packet250CustomPayload();
 		packet.channel = "PorcCorpRandom";
 		packet.data = bos.toByteArray();
-		packet.length = bos.size();
+		packet.length = bos.size();*/
 
 		Side side = FMLCommonHandler.instance().getEffectiveSide();
 		if (side == Side.SERVER) {
 			// We are on the server side.
-			EntityPlayerMP player = (EntityPlayerMP) playerEntity;
+			EntityPlayerMP player = (EntityPlayerMP) eP;
 		} else if (side == Side.CLIENT) {
 			// We are on the client side.
-			EntityClientPlayerMP player = (EntityClientPlayerMP) playerEntity;
-			player.sendQueue.addToSendQueue(packet);
+			EntityClientPlayerMP player = (EntityClientPlayerMP) eP;
+			//player.sendQueue.addToSendQueue(packet);
 		} else {
 			// We are on the Bukkit server.
-		}*/
+		}
 		return false;
 	}
 	@Override

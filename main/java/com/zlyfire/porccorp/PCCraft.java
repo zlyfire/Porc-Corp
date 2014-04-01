@@ -15,8 +15,8 @@ public class PCCraft {
 	public static ItemStack iFleshNugget = new ItemStack(PCItems.iMeatNugget, 1, 3);
 	public static ItemStack iFishNugget = new ItemStack(PCItems.iMeatNugget, 1, 4);
 
-	public static ItemStack rawMixedMeat = new ItemStack(PCItems.mixedMeat, 1, 0);
-	public static ItemStack cookedMixedMeat = new ItemStack(PCItems.mixedMeat, 1, 1);
+	public static ItemStack rawMMeat = new ItemStack(PCItems.mixedMeat, 1, 0);
+	public static ItemStack cookedMMeat = new ItemStack(PCItems.mixedMeat, 1, 1);
 
 	public static ItemStack bPorkBlock = new ItemStack(PCItems.meatBlock, 1, 0);
 	public static ItemStack bBeefBlock = new ItemStack(PCItems.meatBlock, 1, 1);
@@ -25,6 +25,8 @@ public class PCCraft {
 	public static ItemStack bFishBlock = new ItemStack(PCItems.meatBlock, 1, 4);
 	public static ItemStack bMixedBlock = new ItemStack(PCItems.meatBlock, 1, 5);
 	public static ItemStack bMeatMachine = new ItemStack(PCItems.meatBlock, 1, 6);
+	
+	public static ItemStack bMeatFurnace = new ItemStack(PCItems.bMeatFurnace, 1, 0);
 
 	public static void registerRecipes(){
 		shaped();
@@ -62,7 +64,7 @@ public class PCCraft {
 				"MSM",
 				"MMM",
 				"SSS",
-				'M', rawMixedMeat, 'S', Items.stick
+				'M', rawMMeat, 'S', Items.stick
 		});
 		GameRegistry.addRecipe(new ShapedOreRecipe(bMeatMachine, new Object[]{
 				"MMM",
@@ -70,7 +72,13 @@ public class PCCraft {
 				"MMM",
 				'M', "zlyMeatBlock"
 		}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(rawMixedMeat, new Object[]{
+		GameRegistry.addRecipe(new ShapedOreRecipe(bMeatFurnace, new Object[]{
+				"mmm",
+				"m m",
+				"mMm",
+				'M', "zlyMeatBlock", 'm', "meat"
+		}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(rawMMeat, new Object[]{
 				"mmm",
 				"mmm",
 				"mmm",
@@ -124,6 +132,7 @@ public class PCCraft {
 		FurnaceRecipes.smelting().func_151394_a(bPorkBlock, new ItemStack(PCItems.cookedPork, 4), 1F);
 		FurnaceRecipes.smelting().func_151394_a(bBeefBlock, new ItemStack(PCItems.cookedBeef, 4), 1F);
 		FurnaceRecipes.smelting().func_151394_a(bChickenBlock, new ItemStack(PCItems.cookedChicken, 4), 1F);
+		FurnaceRecipes.smelting().func_151394_a(rawMMeat, cookedMMeat, 1F);
 	}
 	public static void mFurnace(){
 
