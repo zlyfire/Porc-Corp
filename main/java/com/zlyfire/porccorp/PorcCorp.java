@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.zlyfire.porccorp.utils.ConfigHandler;
 import com.zlyfire.porccorp.utils.PacketPipeline;
+import com.zlyfire.porccorp.utils.PCGUIHandler;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
@@ -18,6 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = PorcCorp.modid, version = PorcCorp.version)
 public class PorcCorp{
@@ -25,7 +27,7 @@ public class PorcCorp{
     public static final String version = "0.0.1";
 	public static final Logger logger = Logger.getLogger("PorcCorp");
 	public static final PacketPipeline ppl = new PacketPipeline();
-
+	private PCGUIHandler PCGUIHandler = new PCGUIHandler();
     
     public PorcCorp(){
 		//logger.setParent(FMLCommonHandler.instance().getFMLLogger());
@@ -83,7 +85,7 @@ public class PorcCorp{
 	private void registerTEs() {
 		PCItems.bMeatFurnace = new BlockMeatFurnace().setBlockName("bMeatFurnace");
 		
-		//NetworkRegistry.instance().registerGuiHandler(instance, PorcGUIHandler);
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, PCGUIHandler);
 		
 		GameRegistry.registerBlock(PCItems.bMeatFurnace, modid + (PCItems.bMeatFurnace.getUnlocalizedName().substring(5)));
 		GameRegistry.registerTileEntity(TileEntityMeatFurnace.class, "TileEntityMeatFurnace");

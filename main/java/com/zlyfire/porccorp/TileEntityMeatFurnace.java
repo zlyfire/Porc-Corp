@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import com.zlyfire.porccorp.utils.AbstractPacket;
 import com.zlyfire.porccorp.utils.PacketPipeline;
 
 import cpw.mods.fml.relauncher.Side;
@@ -122,7 +123,7 @@ public class TileEntityMeatFurnace extends TileEntity implements IInventory{
 		return 64;
 	}
 
-	public void sendUpdatePacket(Side side){
+	/*public void sendUpdatePacket(Side side){
 		if (side == Side.CLIENT){
 			this.sendToPlayers(getDescriptionPacket(), this);
 			this.worldObj.updateAllLightTypes(this.xCoord, this.yCoord, this.zCoord);
@@ -147,7 +148,7 @@ public class TileEntityMeatFurnace extends TileEntity implements IInventory{
 		if (packet != null) {
 			PacketPipeline.sendToServer(packet);
 		}
-	}
+	}*/
 	public static final boolean isClientWorld(World world){
 		return world.isRemote;
 	}
