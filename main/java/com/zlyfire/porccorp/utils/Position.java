@@ -1,4 +1,4 @@
-package com.zlyfire.porccorp;
+package com.zlyfire.porccorp.utils;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;

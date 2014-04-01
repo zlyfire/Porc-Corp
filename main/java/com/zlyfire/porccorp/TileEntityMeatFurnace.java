@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import com.zlyfire.porccorp.utils.PacketPipeline;
+
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -13,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -119,7 +122,7 @@ public class TileEntityMeatFurnace extends TileEntity implements IInventory{
 		return 64;
 	}
 
-	/*public void sendUpdatePacket(Side side){
+	public void sendUpdatePacket(Side side){
 		if (side == Side.CLIENT){
 			this.sendToPlayers(getDescriptionPacket(), this);
 			this.worldObj.updateAllLightTypes(this.xCoord, this.yCoord, this.zCoord);
@@ -132,19 +135,19 @@ public class TileEntityMeatFurnace extends TileEntity implements IInventory{
 			for (int j = 0; j < world.playerEntities.size(); j++){
 				EntityPlayerMP player = (EntityPlayerMP)world.playerEntities.get(j);
 				if ((Math.abs(player.posX - x) <= maxDistance) && (Math.abs(player.posY - y) <= maxDistance) && (Math.abs(player.posZ - z) <= maxDistance)) {
-					player.playerNetServerHandler.sendPacketToPlayer(packet);
+					player.playerNetServerHandler.sendPacket(packet);
 				}
 			}
 		}
 	}	public static void sendToPlayers(Packet packet, TileEntity theTile){
-		sendToPlayers(packet, theTile.worldObj, theTile.xCoord, theTile.yCoord, theTile.zCoord, 192);
-	}*/
+		sendToPlayers(packet, theTile.getWorldObj(), theTile.xCoord, theTile.yCoord, theTile.zCoord, 192);
+	}
 
-	/*public static void sendToServer(Packet packet){
+	public static void sendToServer(Packet packet){
 		if (packet != null) {
-			PacketDispatcher.sendPacketToServer(packet);
+			PacketPipeline.sendToServer(packet);
 		}
-	}*/
+	}
 	public static final boolean isClientWorld(World world){
 		return world.isRemote;
 	}
